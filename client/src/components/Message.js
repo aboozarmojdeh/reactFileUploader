@@ -7,7 +7,7 @@ const Message = ({ msg }) => {
       {msg}
       <button
         type='button'
-        className='close'
+        className='btn-close'
         data-dismiss='alert'
         aria-label='Close'
       >

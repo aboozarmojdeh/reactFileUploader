@@ -21,7 +21,7 @@ const FileUpload = () => {
     formData.append('file', file);
 
     try {
-      const res = await axios.post('http://localhost:5000/uploadfile', formData, {
+      const res = await axios.post('http://localhost:5000/uploadphotomodel', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         },
@@ -40,6 +40,7 @@ const FileUpload = () => {
       const { fileName, filePath } = res.data;
 
       setUploadedFile({ fileName, filePath });
+      console.log(uploadedFile.filePath)
 
       setMessage('File Uploaded');
     } catch (err) {
@@ -55,15 +56,15 @@ const FileUpload = () => {
     <Fragment>
       {message ? <Message msg={message} /> : null}
       <form onSubmit={onSubmit}>
-        <div className='custom-file mb-4'>
+        <div className='input-group mb-3'>
           <input
             type='file'
-            className='custom-file-input'
+            className='form-control'
             id='customFile'
             onChange={onChange}
           />
-          <label className='custom-file-label' htmlFor='customFile'>
-            {filename}
+          <label className='input-group-text' htmlFor='customFile'>
+          Upload
           </label>
         </div>
 
